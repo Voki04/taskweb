@@ -10,11 +10,10 @@ class TaskModel:
         if self.connection is None:
             try:
                 self.connection = mysql.connector.connect(
-                    Host: sql12.freesqldatabase.com
-                    Database name: sql12771357
-                    Database user: sql12771357
-                    Database password: ZGpzfNAyyq
-                    Port number: 3306  # Đảm bảo trùng với tên DB bạn đang dùng
+                    host="sql12.freesqldatabase.com",
+                    user="sql12771357",
+                    password="ZGpzfNAyyq",
+                    database="sql12771357"  # Đảm bảo trùng với tên DB bạn đang dùng
                 )
                 if self.connection.is_connected():
                     print("✅ Đã kết nối đến MySQL")
@@ -24,11 +23,9 @@ class TaskModel:
     def create_database(self):
         try:
             conn = mysql.connector.connect(
-                    Host: sql12.freesqldatabase.com
-                    Database name: sql12771357
-                    Database user: sql12771357
-                    Database password: ZGpzfNAyyq
-                    Port number: 3306
+                host="sql12.freesqldatabase.com",
+                user="sql12771357",
+                password="ZGpzfNAyyq"
             )
             cursor = conn.cursor()
             cursor.execute("CREATE DATABASE IF NOT EXISTS mydatabase")
