@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Đăng nhập{% endblock %}
+{% block content %}
+
+<h2 class="text-center mb-4">🔐 Đăng nhập</h2>
+<form action="/login" method="post" class="card p-4 shadow-sm">
+    <div class="mb-3">
+        <input type="text" name="username" class="form-control" placeholder="Tên đăng nhập" required>
+    </div>
+    <div class="mb-3">
+        <input type="password" name="password" class="form-control" placeholder="Mật khẩu" required>
+    </div>
+    <button class="btn btn-primary w-100">Đăng nhập</button>
+</form>
+
+<p class="text-center mt-3">Chưa có tài khoản? <a href="{{ url_for('regis') }}">Đăng ký</a></p>
+
+{% endblock %}

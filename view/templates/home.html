@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Trang chủ{% endblock %}
+{% block content %}
+
+<h1 class="text-center mb-4">Chào {{ username }}!</h1>
+<div class="text-center">
+    <a href="/home/task" class="btn btn-primary me-2">Quản lý công việc</a>
+    <form action="/logout" method="get" class="d-inline">
+        <button class="btn btn-outline-danger">Đăng xuất</button>
+    </form>
+</div>
+
+{% endblock %}

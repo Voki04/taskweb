@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Quản lý công việc{% endblock %}
+{% block content %}
+
+<h2 class="text-center mb-4">📝 Danh sách công việc</h2>
+
+<form action="/home/task/add" method="post" class="card p-3 mb-4 shadow-sm w-100">
+    <div class="mb-3">
+        <input type="text" name="name" class="form-control" placeholder="Tên task..." required>
+    </div>
+    <div class="mb-3">
+        <textarea name="description" class="form-control" rows="2" placeholder="Mô tả..."></textarea>
+    </div>
+    <div class="mb-3">
+        <input type="date" name="deadline" class="form-control">
+    </div>
+    <button class="btn btn-success w-100">➕ Thêm task</button>
+</form>
+
+<ul class="list-group">
+    {% for task in tasks %}
+    <li class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start {% if task.status == 1 %}text-decoration-line-through text-muted{% endif %}">
+
+        <div class="d-flex flex-column">
+            <div class="d-flex align-items-center gap-2">
+                <input type="checkbox" onchange="toggleStatus({{ task.id }}, this.checked)" {% if task.status == 1 %}checked{% endif %}>
+                <strong>{{ task.name }}</strong>
+            </div>
+
+            {% if task.description %}
+            <small class="text-muted">{{ task.description }}</small>
+            {% endif %}
+
+            {% if task.deadline %}
+            <small class="text-muted">
+                📅 Hạn: {{ task.deadline.strftime('%d/%m/%Y') }}
+                {% if task.status == 0 and task.deadline <= (now + timedelta(days=3)) and task.deadline >= now %}
+                <span class="badge bg-danger ms-2">🔴 Sắp đến hạn</span>
+                {% endif %}
+            </small>
+            {% endif %}
+        </div>
+
+        <div class="mt-2 mt-md-0">
+            <form action="/home/task/delete/{{ task.id }}" method="post" class="d-inline">
+                <button class="btn btn-sm btn-danger">Xoá</button>
+            </form>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="/home" class="btn btn-outline-secondary mt-4">⬅️ Quay về trang chủ</a>
+
+{% endblock %}
