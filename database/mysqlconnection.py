@@ -4,10 +4,11 @@ def connect_db():
     try:
         # B1: Kết nối MySQL chưa chọn DB để tạo DB nếu cần
         conn = mysql.connector.connect(
-            host="db4free.net",
-            user="voki02",
-            password="Quyen02082004@",
-            database="Quyen02082004@"
+            Host: sql12.freesqldatabase.com
+            Database name: sql12771357
+            Database user: sql12771357
+            Database password: ZGpzfNAyyq
+            Port number: 3306
         )
         cursor = conn.cursor()
 
@@ -18,10 +19,11 @@ def connect_db():
 
         # B3: Kết nối lại với database 'mydatabase'
         conn = mysql.connector.connect(
-            host="db4free.net",
-            user="voki02",
-            password="Quyen02082004@",
-            database="Quyen02082004@"
+            Host: sql12.freesqldatabase.com
+            Database name: sql12771357
+            Database user: sql12771357
+            Database password: ZGpzfNAyyq
+            Port number: 3306
         )
 
         # B4: Tạo bảng tasks nếu chưa có (sau khi đã vào đúng DB)
