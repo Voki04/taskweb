@@ -4,9 +4,10 @@ def connect_db():
     try:
         # B1: Kết nối MySQL chưa chọn DB để tạo DB nếu cần
         conn = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="123456"
+            host="db4free.net",
+            user="voki02",
+            password="Quyen02082004@",
+            database="Quyen02082004@"
         )
         cursor = conn.cursor()
 
