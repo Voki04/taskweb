@@ -25,7 +25,7 @@ class TaskModel:
             conn = mysql.connector.connect(
                 host="db4free.net",
                 user="voki02",
-                password="Quyen02082004@",
+                password="Quyen02082004@"
             )
             cursor = conn.cursor()
             cursor.execute("CREATE DATABASE IF NOT EXISTS mydatabase")
